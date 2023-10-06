@@ -69,15 +69,15 @@ const Todo = () => {
         <h1 className='text-xl font-bold mb-10'><span className='text-accentCol'>To Do </span>List</h1>
 
 
-        <div className="text-center lg:flex-row  sm:flex-col">
-            <input  className="border rounded-xl shadow-lg shadow-primaryCol p-3 focus:outline-accentCol lg:w-96 sm:w-72 block mb-5" value={newTask} onChange={(e) => {setNewTask(e.target.value)}} />
-            <button className='ml-3 text-textCol border rounded-lg pt-2 pb-2 pl-5 pr-5 bg-primaryCol sm:m-0' onClick={addTask}>Add</button>
-            <button className='ml-4 text-textCol border rounded-lg p-2 bg-secondaryCol' onClick={reset}>Clear All</button>
+        <div className="text-center md:flex-row  sm:flex-col md:ml-20">
+            <input  className="border rounded-xl shadow-lg shadow-primaryCol p-3 focus:outline-accentCol block mb-5 md:w-96 md:inline md:ml-24 sm:w-72" value={newTask} onChange={(e) => {setNewTask(e.target.value)}} />
+            <button className='ml-3 text-textCol border rounded-lg pt-2 pb-2 pl-5 pr-5 bg-accentCol sm:m-0 md:ml-5' onClick={addTask}>Add</button>
+            <button className='ml-4 text-textCol border rounded-lg p-2 bg-primaryCol' onClick={reset}>Clear All</button>
         </div>
         <ul className='text-center'>
         {
             todos.map((todo) => (
-                <li key = {todo.id}  className={`hover:cursor-pointer mt-5 text-textCol ${todo.status ? 'line-through decoration-accentCol' : 'none'}`}>
+                <li key = {todo.id}  className={`hover:cursor-pointer mt-5 text-textCol ${todo.status ? 'line-through decoration-accentCol' : 'none'} bg-secondaryCol rounded-lg p-2 shadow-lg shadow-primaryCol hover:bg-primaryCol`}>
                     {todo.task}  <button onClick={() => statusUpdate(todo.id)}>{todo.status?<UnpublishedIcon className='mr-3 ml-3'></UnpublishedIcon>:<TaskAltIcon className='mr-3 ml-3'></TaskAltIcon>}</button><button onClick={() => removeTodo(todo.id)}><DeleteForeverIcon></DeleteForeverIcon></button>
                 </li>
             ))
