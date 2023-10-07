@@ -32,8 +32,6 @@ const Todo = () => {
     }
 
     const statusUpdate = (id:number) => {
-        // setTodos((prevTodo) => prevTodo.map((todo) => todo.id===id ? {...todo,status: !todo.status} : todo)
-        // )
 
         setTodos((prevTodo) => {
             const updateStatus = prevTodo.map((todo) => {
